@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thembisile Buthelezi · Educational Technology ePortfolio</title>
+<meta name="description" content="Capstone ePortfolio of Thembisile Buthelezi, M.Ed. Educational Technology candidate at the University of Delaware: master's performances aligned to ISTE and AECT standards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#00539F; --blue-hover:#003F7A; --accent-bg:#EEF4FA;
+  --bg:#FFFFFF; --surface:#FFFFFF; --subtle:#F6F7F9; --text:#1A1D23; --muted:#5B6270; --faint:#8A919E;
+  --border:#E4E7EC; --radius:10px; --maxw:1080px;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+:root[data-theme="dark"]{
+  --blue:#7FB2E5; --blue-hover:#A3C9EE; --accent-bg:#16263A;
+  --bg:#0F1115; --surface:#15181E; --subtle:#1A1E25; --text:#E8EAED; --muted:#A0A7B4; --faint:#7A8290; --border:#2A2F38;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:10px;background:var(--text);color:var(--bg);padding:8px 14px;border-radius:6px;z-index:200}
+.skip:focus{left:10px}
+h1,h2,h3,h4,h5,h6{font-weight:600;letter-spacing:-.015em;line-height:1.25;color:var(--text)}
+
+/* nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--blue);z-index:120}
+header.nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .2s}
+header.nav.scrolled{border-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--text)}
+.brand:hover{text-decoration:none}
+.brand-mark{display:none}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{padding:6px 12px;font-size:14px;font-weight:500;color:var(--muted);border-radius:6px}
+.nav-links a:hover{color:var(--text);text-decoration:none;background:var(--subtle)}
+.nav-links a.active{color:var(--text)}
+.nav-actions{display:flex;gap:6px;align-items:center}
+.icon-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);display:grid;place-items:center}
+.icon-btn:hover{color:var(--text)}
+.icon-btn svg{width:17px;height:17px}
+#menuBtn{display:none}
+@media(max-width:860px){
+  #menuBtn{display:grid}
+  .nav-links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--bg);padding:8px 24px 16px;border-bottom:1px solid var(--border);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:12px 0}
+}
+
+/* hero */
+.hero{padding:88px 0 72px;border-bottom:1px solid var(--border)}
+.hero-grid{display:grid;grid-template-columns:1fr 240px;gap:56px;align-items:center}
+.eyebrow{font-size:14px;font-weight:500;color:var(--muted)}
+.dot{display:none}
+h1{font-size:clamp(36px,5vw,52px);font-weight:700;letter-spacing:-.025em;margin:10px 0 6px}
+.subtitle{font-size:20px;color:var(--muted);font-weight:400}
+.grad-line{font-size:14px;color:var(--faint);margin-top:6px}
+.grad-line:empty{display:none}
+.hero p.lead{margin:22px 0 28px;max-width:62ch;color:var(--muted);font-size:17px}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:500;font-size:15px;border:1px solid transparent;transition:background .15s,border-color .15s}
+.btn:hover{text-decoration:none}
+.btn-primary,.btn-gold{background:var(--blue);color:#fff}
+.btn-primary:hover,.btn-gold:hover{background:var(--blue-hover)}
+:root[data-theme="dark"] .btn-primary,:root[data-theme="dark"] .btn-gold{color:#0F1115}
+.btn-ghost{background:var(--surface);border-color:var(--border);color:var(--text)}
+.btn-ghost:hover{background:var(--subtle)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--border);padding-top:22px}
+.stat{padding:0 18px;border-left:1px solid var(--border)}
+.stat:first-child{padding-left:0;border-left:none}
+.stat b{display:block;font-size:26px;font-weight:600;color:var(--text);letter-spacing:-.02em}
+.stat span{display:block;font-size:13px;line-height:1.4;margin-top:2px;color:var(--muted)}
+.portrait{width:240px;height:240px}
+.portrait .ring{display:none}
+.portrait .frame{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--subtle);border:1px solid var(--border);display:grid;place-items:center}
+.portrait .frame img{width:100%;height:100%;object-fit:cover}
+.portrait .initials{font-size:64px;font-weight:600;color:var(--faint)}
+@media(max-width:860px){.hero{padding:48px 0}.hero-grid{grid-template-columns:1fr;gap:28px}.portrait{order:-1;width:120px;height:120px}.portrait .initials{font-size:36px}.stats{grid-template-columns:repeat(2,1fr);row-gap:18px}.stat:nth-child(3){padding-left:0;border-left:none}}
+
+/* sections */
+section{padding:80px 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.section-head{max-width:680px;margin-bottom:36px}
+.kicker{font-size:13px;font-weight:500;color:var(--faint)}
+h2{font-size:clamp(26px,3vw,32px);margin:4px 0 10px}
+.section-head p{color:var(--muted)}
+.alt{background:transparent}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px}
+.about-grid p{margin-bottom:14px;color:var(--muted)}
+.about-grid p strong{color:var(--text);font-weight:600}
+.focus-list{display:grid;gap:0;border-top:1px solid var(--border);align-self:start}
+.focus{padding:16px 0;border-bottom:1px solid var(--border)}
+.focus .ic{display:none}
+.focus h4{font-size:15px}
+.focus p{font-size:14px;margin:2px 0 0;color:var(--muted)}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:28px}}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;align-items:center}
+.filters .label{font-size:13px;color:var(--muted);margin-right:6px}
+.chip{border:1px solid var(--border);background:var(--surface);padding:5px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
+.chip:hover{color:var(--text);border-color:var(--faint)}
+.chip[aria-pressed="true"],.chip.aect[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+/* performance cards */
+.perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.perf{text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,box-shadow .15s,opacity .2s}
+.perf:hover{border-color:var(--faint);box-shadow:0 4px 16px -8px rgba(16,24,40,.15)}
+.perf.dim{opacity:.35}
+.perf-top{display:flex;justify-content:space-between;align-items:center}
+.perf-num{font-size:13px;color:var(--faint)}
+.perf h3{font-size:18px}
+.perf-desc{font-size:14px;color:var(--muted);flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag,.tag.aect{font-size:12px;font-weight:500;padding:2px 8px;border-radius:4px;background:var(--subtle);color:var(--muted);border:1px solid var(--border)}
+.status{font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--faint)}
+.status.done::before{background:#2E9E5B}
+.status.progress::before{background:#D4A017}
+.perf-cta{font-size:14px;font-weight:500;color:var(--blue);margin-top:4px}
+
+/* matrix */
+.matrix-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius)}
+table.matrix{border-collapse:collapse;width:100%;min-width:820px;font-size:14px}
+.matrix th,.matrix td{padding:11px 8px;border-bottom:1px solid var(--border);text-align:center}
+.matrix tbody tr:last-child th,.matrix tbody tr:last-child td{border-bottom:none}
+.matrix thead th{font-size:12px;font-weight:500;color:var(--muted);vertical-align:bottom;background:var(--subtle)}
+.matrix thead th button{background:none;border:none;font-weight:600;font-size:12px;padding:3px 7px;border-radius:4px;color:var(--text)}
+.matrix thead th button:hover{background:var(--border)}
+.matrix thead th button.on{background:var(--text);color:var(--bg)}
+.matrix tbody th{text-align:left;font-weight:500;white-space:nowrap;padding-left:16px}
+.matrix tbody th button{background:none;border:none;text-align:left;font-weight:500}
+.matrix tbody th button:hover{color:var(--blue)}
+.matrix .group{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.cell-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+td.aect-col .cell-dot{background:transparent;border:2px solid var(--blue)}
+td.hl,th.hl{background:var(--accent-bg)}
+.std-detail{margin-top:18px;padding:20px 22px;border:1px solid var(--border);border-radius:var(--radius)}
+.std-detail h4{font-size:17px;margin-bottom:4px}
+.std-detail p{color:var(--muted);font-size:14px}
+
+/* timeline */
+.tabs{display:inline-flex;border-bottom:1px solid var(--border);margin-bottom:24px;gap:4px}
+.tab{border:none;background:none;padding:8px 14px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--text);border-color:var(--text)}
+.timeline{border-top:1px solid var(--border)}
+.tl-item{border-bottom:1px solid var(--border)}
+.tl-card{padding:16px 0}
+.tl-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;width:100%;background:none;border:none;text-align:left}
+.tl-head h4{font-size:16px}
+.tl-head:hover h4{color:var(--blue)}
+.tl-date{font-size:14px;color:var(--muted);white-space:nowrap}
+.tl-org{font-size:14px;color:var(--muted)}
+.tl-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s}
+.tl-body>div{overflow:hidden}
+.tl-item.open .tl-body{grid-template-rows:1fr}
+.tl-body ul{margin:10px 0 4px 18px;color:var(--muted);font-size:15px}
+.tl-body li{margin-bottom:4px}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 48px}
+.skill-card{padding:18px 0;border-top:1px solid var(--border)}
+.skill-card h4{font-size:15px;margin-bottom:10px}
+.pill-row{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:13px;padding:3px 10px;border-radius:4px;background:var(--subtle);border:1px solid var(--border);color:var(--muted)}
+.lang{padding:6px 0;border-bottom:1px solid var(--border)}.lang:last-child{border-bottom:none}
+.lang-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.lang-row span:last-child{color:var(--muted)}
+.bar{display:none;height:4px;background:var(--border);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--blue);border-radius:99px;transition:width 1s ease}
+
+/* honors */
+.honors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 32px}
+.honor{padding:16px 0;border-top:1px solid var(--border)}
+.honor .y{font-size:13px;color:var(--faint)}
+.honor h4{font-size:15px;margin:2px 0}
+.honor p{font-size:14px;color:var(--muted)}
+.feature{margin-top:28px;padding:20px 22px;border:1px solid var(--border);border-radius:var(--radius)}
+.feature .big{display:none}
+.feature h3{font-size:16px}
+.feature p{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{max-width:620px}
+.contact p{color:var(--muted);margin:0 0 22px}
+footer{padding:28px 0;color:var(--faint);font-size:13px;border-top:1px solid var(--border)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(15,17,21,.45)}
+.modal.open{display:flex;animation:fade .15s}
+.modal-box{background:var(--surface);width:min(820px,100%);max-height:88vh;overflow:auto;border-radius:12px;border:1px solid var(--border);box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.modal-head{position:sticky;top:0;background:var(--surface);padding:22px 28px 0;border-bottom:1px solid var(--border);z-index:2}
+.modal-head .row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.modal-head h3{font-size:24px;margin:2px 0 14px}
+.modal-tabs{display:flex;gap:4px;overflow-x:auto}
+.mtab{border:none;background:none;padding:8px 12px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.mtab[aria-selected="true"]{color:var(--text);border-color:var(--text)}
+.modal-body{padding:24px 28px 28px}
+.modal-body h5{font-size:13px;font-weight:600;color:var(--text);margin:22px 0 8px}
+.modal-body p,.modal-body li{color:var(--muted)}
+.modal-body ul{margin-left:18px}
+.meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;border:1px solid var(--border);border-radius:8px}
+.meta{padding:10px 14px;border-right:1px solid var(--border)}
+.meta:last-child{border:none}
+.meta small{display:block;font-size:12px;color:var(--faint)}
+.meta strong{font-size:14px;font-weight:500}
+@media(max-width:600px){.meta-grid{grid-template-columns:1fr}.meta{border-right:none;border-bottom:1px solid var(--border)}}
+.artifact-box{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.artifact-box iframe{width:100%;height:460px;border:0;background:#fff}
+.artifact-empty{padding:40px 20px;text-align:center}
+.artifact-empty .big{display:none}
+.draft{border:1px dashed var(--border);border-radius:8px;padding:16px 18px;background:var(--subtle)}
+.draft strong{font-size:14px;display:block;margin-bottom:6px;color:var(--text)}
+.modal-nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px;padding-top:18px;border-top:1px solid var(--border)}
+.modal-nav .btn{font-size:14px;padding:8px 14px}
+@keyframes fade{from{opacity:0}}
+
+/* standards: quote + explanation */
+.std-block{padding:18px 0;border-top:1px solid var(--border)}
+.std-block-head{display:flex;gap:10px;align-items:baseline}
+.std-block-head .code,.std-block-head .code.aect{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.std-block-head h6{font-size:16px}
+.std-quote{margin:10px 0 12px;padding:2px 0 2px 16px;border-left:3px solid var(--border);color:var(--text)}
+.std-quote cite{display:block;margin-top:4px;font-size:13px;font-style:normal;color:var(--faint)}
+.std-summary{margin:8px 0 12px;color:var(--muted);font-size:15px}
+.std-summary span{font-size:11px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+.how strong{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.how p{color:var(--text)!important}
+.how p.pending{color:var(--faint)!important;font-style:italic}
+.linkish{background:none;border:none;color:var(--blue);font-weight:500;padding:0}
+.linkish:hover{text-decoration:underline}
+.met-list{display:grid;gap:0;margin-top:14px;border-top:1px solid var(--border)}
+.met{padding:12px 0;border-bottom:1px solid var(--border)}
+.met:last-child{border-bottom:none}
+.met a{font-weight:500}
+.met p{margin-top:2px}
+
+/* review checklist (?review) */
+.review{position:fixed;left:20px;bottom:20px;z-index:140;width:min(340px,calc(100% - 40px));background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:0 12px 32px -12px rgba(0,0,0,.25);font-size:13px}
+.review-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.review-head strong{flex:1}
+.review-head span{color:var(--muted)}
+.review-head button{border:1px solid var(--border);background:var(--surface);border-radius:6px;width:26px;height:26px}
+.review-bar{height:3px;background:var(--border);margin:0 14px}
+.review-bar i{display:block;height:100%;background:var(--blue)}
+.review-list{max-height:40vh;overflow:auto;padding:8px 14px 12px}
+.rv{padding:6px 0;border-bottom:1px solid var(--border);color:var(--muted)}
+.rv a{color:var(--text)}
+.ok-all{color:#2E7D4F;font-weight:500}
+.review.min .review-list,.review.min .review-bar{display:none}
+
+/* misc */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+#toTop{position:fixed;right:20px;bottom:20px;z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+#toTop.show{opacity:1;pointer-events:auto}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:8px 16px;border-radius:6px;font-size:14px;opacity:0;transition:.2s;z-index:200}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+@media print{header.nav,#toTop,#progress,.filters,.review,.contact .btn-row{display:none}.reveal{opacity:1;transform:none}section{padding:24px 0}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">Thembisile Buthelezi</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#performances">Performances</a></li>
+      <li><a href="#standards">Standards</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Capstone ePortfolio</span>
+      <h1>Thembisile Buthelezi</h1>
+      <p class="subtitle">M.Ed. Educational Technology, University of Delaware</p>
+      <div class="grad-line" id="gradLine"></div>
+      <p class="lead">I design learning experiences that use technology to widen access. This ePortfolio presents the six performances of my master's program, each aligned to the ISTE and AECT standards, alongside my background in science education and coding instruction.</p>
+      <div class="btn-row">
+        <a href="#performances" class="btn btn-primary">View performances</a>
+        <a href="assets/Thembisile-Buthelezi-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Download résumé</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>6</b><span>Master's performances</span></div>
+        <div class="stat"><b id="stdCount">12</b><span>Standards addressed</span></div>
+        <div class="stat"><b>5</b><span>Degrees &amp; qualifications</span></div>
+        <div class="stat"><b>3</b><span>Cum laude &amp; academic awards</span></div>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="frame" id="photoFrame">
+        <img src="assets/profile.jpg" alt="Portrait of Thembisile Buthelezi" onerror="this.remove();document.getElementById('photoFrame').insertAdjacentHTML('beforeend','<span class=initials>TB</span>')">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="kicker">About me</span>
+      <h2>From the genetics lab to the digital classroom</h2>
+      <p>I'm <strong>Thembisile Buthelezi</strong>, a Master of Education candidate in <strong>Educational Technology at the University of Delaware</strong>. My path began with a BSc in Genetics and Microbiology, and grew into teaching through a PGCE (cum laude) and a BEd Honours in Science Education (cum laude).</p>
+      <p>Along the way I taught Life Sciences and Mathematical Literacy, supported remote schools with mathematics and science, and tutored pre-service Foundation Phase teachers in <strong>coding and robotics</strong> with Scratch Junior and OctoStudio.</p>
+      <p>I believe technology should widen access, not narrow it. My work focuses on designing blended, collaborative learning experiences grounded in research and in the real needs of learners and educators.</p>
+    </div>
+    <div class="focus-list reveal">
+      <div class="focus"><div><h4>Learning design</h4><p>Blended and multimedia environments with varied, authentic assessment.</p></div></div>
+      <div class="focus"><div><h4>Computational thinking</h4><p>Unplugged and digital coding activities for early learners and teachers.</p></div></div>
+      <div class="focus"><div><h4>Research-informed practice</h4><p>Qualitative and quantitative methods to test what works locally.</p></div></div>
+      <div class="focus"><div><h4>Educator development</h4><p>Professional learning shaped by principles of adult learning.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCES -->
+<section id="performances">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Master's performances</span>
+      <h2>Six performances</h2>
+      <p>This site is my National Standards Capstone ePortfolio. It presents the six performances every EDTC candidate completes and, for each one, quotes the ISTE and AECT standards it let me practice and explains in my own words how I met them. Select a card to see the overview, standards, artifact and reflection, or use the filters to find the performances that address a particular standard.</p>
+    </div>
+    <div class="filters reveal" id="filters" role="group" aria-label="Filter performances by standard"></div>
+    <div class="perf-grid" id="perfGrid"></div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section id="standards" class="alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Standards alignment</span>
+      <h2>How my work maps to ISTE and AECT</h2>
+      <p>Select a standard (column) to read it and see how each performance met it. Select a performance (row) to open its standards.</p>
+    </div>
+    <div class="matrix-wrap reveal"><table class="matrix" id="matrix"></table></div>
+    <div class="std-detail reveal" id="stdDetail" aria-live="polite">
+      <h4>Select a standard</h4>
+      <p>Choose any column heading above to read the standard and how my work met it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">My journey</span>
+      <h2>Education &amp; experience</h2>
+      <p>Select an entry to expand the details.</p>
+    </div>
+    <div class="tabs reveal" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tl="experience">Experience</button>
+      <button class="tab" role="tab" aria-selected="false" data-tl="education">Education</button>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Toolkit</span>
+      <h2>Skills &amp; languages</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><h4>EdTech &amp; LMS</h4><div class="pill-row"><span class="pill">Canvas</span><span class="pill">Scratch Junior</span><span class="pill">OctoStudio</span><span class="pill">Camtasia</span><span class="pill">Unplugged coding</span></div></div>
+      <div class="skill-card reveal"><h4>Content development</h4><div class="pill-row"><span class="pill">Multimedia resources</span><span class="pill">Interactive lessons</span><span class="pill">Infographics</span><span class="pill">Instructional video</span></div></div>
+      <div class="skill-card reveal"><h4>Web &amp; code</h4><div class="pill-row"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">Python</span><span class="pill">Responsive design</span></div></div>
+      <div class="skill-card reveal"><h4>Research</h4><div class="pill-row"><span class="pill">Qualitative methods</span><span class="pill">Quantitative methods</span><span class="pill">Data collection</span><span class="pill">Data analysis</span><span class="pill">Literature review</span></div></div>
+      <div class="skill-card reveal"><h4>Professional</h4><div class="pill-row"><span class="pill">Collaboration</span><span class="pill">Communication</span><span class="pill">Problem solving</span><span class="pill">Innovation</span><span class="pill">Event coordination</span></div></div>
+      <div class="skill-card reveal"><h4>Languages</h4>
+        <div class="lang"><div class="lang-row"><span>English</span><span>Fluent</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="lang"><div class="lang-row"><span>isiZulu</span><span>Fluent</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="lang"><div class="lang-row"><span>isiXhosa</span><span>Fluent</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="lang"><div class="lang-row"><span>Sesotho</span><span>Beginner</span></div><div class="bar"><i data-w="30"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS -->
+<section id="honors">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Recognition &amp; service</span>
+      <h2>Honors and community</h2>
+    </div>
+    <div class="honors">
+      <div class="honor reveal"><div class="y">2025</div><h4>Academic Award</h4><p>Noswal Hall, University of the Witwatersrand</p></div>
+      <div class="honor reveal"><div class="y">2024</div><h4>Cum Laude, BEd Honours</h4><p>Science Education, University of the Witwatersrand</p></div>
+      <div class="honor reveal"><div class="y">2023</div><h4>Cum Laude, PGCE</h4><p>Stellenbosch University</p></div>
+      <div class="honor reveal"><div class="y">2016 – 2020</div><h4>Moshal Scholarship</h4><p>Full undergraduate scholarship, plus a 2019 Community Service Involvement Certificate</p></div>
+    </div>
+    <div class="feature reveal">
+      <div><h3>Founder &amp; Chairperson, Sithandani Foundation</h3><p>A registered non-profit organisation (NPO 282-967) I founded to give back to my community.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <span class="kicker">Contact</span>
+      <h2>Let's connect</h2>
+      <p>I'm always happy to talk about learning design, educational technology, and bringing coding into classrooms.</p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="mailto:sindiswathembisile18@gmail.com">Email me</a>
+        <button class="btn btn-ghost" id="copyEmail">Copy email address</button>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> Thembisile Buthelezi · EDTC Capstone ePortfolio, University of Delaware</div>
+</footer>
+
+<button class="icon-btn" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="toast" id="toast" role="status"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="row">
+        <div><span class="kicker" id="mKicker"></span><h3 id="mTitle"></h3></div>
+        <button class="icon-btn" id="mClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="modal-tabs" role="tablist">
+        <button class="mtab" role="tab" data-mt="overview" aria-selected="true">Overview</button>
+        <button class="mtab" role="tab" data-mt="standards" aria-selected="false">Standards</button>
+        <button class="mtab" role="tab" data-mt="artifact" aria-selected="false">Artifact</button>
+        <button class="mtab" role="tab" data-mt="reflection" aria-selected="false">Reflection</button>
+      </div>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT YOUR CONTENT HERE
+
+   The Capstone Submission Form checks three things for EACH of the six
+   performances:
+     1. The performance itself is in the ePortfolio      → artifact
+     2. The standard is QUOTED                           → STANDARDS[...].quote
+     3. A sentence or two, in your own words, explaining
+        how you met that standard                        → standards: [{code, how}]
+
+   - quote: paste the official wording from the ISTE Standards for Coaches /
+     AECT Standards links on the submission form. Paste it once here and it
+     appears everywhere that standard is used. Until you do, a plain-language
+     summary shows in its place.
+   - how: your own 1–2 sentences for that performance and that standard.
+   - artifact: a file in your repo (e.g. "artifacts/needs-assessment.pdf") or a
+     link. Google Drive files must be shared as "Anyone with the link".
+   - status: "done", "progress" or "planned"
+   - reflection: optional paragraphs, e.g. ["First…", "Second…"]
+   - Remove any standard you did not align with. If you choose ISTE only or
+     AECT only on the form, delete the other group's entries below.
+
+   CHECK BEFORE SUBMITTING: open your site with ?review at the end of the
+   address (e.g. https://yourname.github.io/?review). A checklist shows
+   everything still missing.
+   ===================================================================== */
+const FRAMEWORK = "https://www1.udel.edu/edtech/edtc/EDTC-Program-Assessment-Framework-2nd-Edition.pdf";
+const GRADUATION = "Add semester, e.g. Spring 2027";
+
+const STANDARDS = {
+  "ISTE 4.1":{group:"ISTE",name:"Change Agent",quote:"",desc:"Inspires educators and leaders to use technology to create lasting, meaningful change in teaching and learning, through a shared vision, equitable access and a culture of innovation."},
+  "ISTE 4.2":{group:"ISTE",name:"Connected Learner",quote:"",desc:"Models continuous learning: pursuing professional growth, building networks and reflecting on practice to improve as a coach and leader."},
+  "ISTE 4.3":{group:"ISTE",name:"Collaborator",quote:"",desc:"Builds relationships with educators, leaders and communities to plan, implement and evaluate the use of technology for learning."},
+  "ISTE 4.4":{group:"ISTE",name:"Learning Designer",quote:"",desc:"Models and supports the design of learning experiences that are personalised, authentic, accessible and use technology to deepen learning."},
+  "ISTE 4.5":{group:"ISTE",name:"Professional Learning Facilitator",quote:"",desc:"Plans, delivers and evaluates professional learning that improves educators' use of technology, grounded in adult-learning principles."},
+  "ISTE 4.6":{group:"ISTE",name:"Data-Driven Decision-Maker",quote:"",desc:"Uses data to guide decisions about instruction, technology and professional learning, and helps others interpret and act on it."},
+  "ISTE 4.7":{group:"ISTE",name:"Digital Citizen Advocate",quote:"",desc:"Promotes safe, ethical, legal and equitable use of technology and inclusive digital learning cultures."},
+  "AECT 1":{group:"AECT",name:"Content Knowledge",quote:"",desc:"Knowledge needed to create, use, assess and manage the theory and practice of educational technologies and processes."},
+  "AECT 2":{group:"AECT",name:"Content Pedagogy",quote:"",desc:"Reflective practice in implementing educational technologies and processes grounded in theory, research and best practice."},
+  "AECT 3":{group:"AECT",name:"Learning Environments",quote:"",desc:"Creating, using, evaluating and managing effective learning environments."},
+  "AECT 4":{group:"AECT",name:"Professional Knowledge & Skills",quote:"",desc:"Designing, developing, implementing and evaluating technology-rich learning environments within a community of practice."},
+  "AECT 5":{group:"AECT",name:"Research",quote:"",desc:"Exploring, evaluating, synthesising and applying methods of inquiry to improve learning and performance."}
+};
+
+const PERFORMANCES = [
+  {
+    id:"multimedia", icon:"🌐", title:"Multimedia eLearning Environment", page:7,
+    course:"Add course code", term:"Add term", status:"done",
+    summary:"A multimedia web that creates a blended learning environment with multiple methods of assessment, including collaborative learning.",
+    overview:"I designed and built a multimedia web environment that blends online and face-to-face learning. Learners move through rich media, interactive activities and collaborative tasks, and are assessed through several complementary methods rather than a single test.",
+    highlights:["Blended structure combining online and in-person activities","Multiple assessment methods (add yours: quizzes, rubrics, peer review…)","Collaborative learning built into the design"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.4", how:""},
+      {code:"ISTE 4.3", how:""},
+      {code:"AECT 2", how:""},
+      {code:"AECT 3", how:""}
+    ],
+    reflection:[], prompts:["What topic and audience did you design for, and why?","Which assessment methods did you choose and what did each reveal?","How did collaboration work in practice? What would you redesign?"]
+  },
+  {
+    id:"needs", icon:"🔍", title:"Needs Assessment", page:10,
+    course:"Add course code", term:"Add term", status:"done",
+    summary:"A term paper with a literature review establishing the need for systemic improvements in educational technology infrastructure.",
+    overview:"This paper identifies gaps in a school or organisation's educational technology infrastructure and uses a review of the literature to argue for improvement, covering professional development and training, research-based best practices, and the characteristics of all learners.",
+    highlights:["Literature review of research-based best practices","Analysis of professional development and training needs","Attention to the characteristics of all learners"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.1", how:""},
+      {code:"ISTE 4.6", how:""},
+      {code:"AECT 1", how:""},
+      {code:"AECT 5", how:""}
+    ],
+    reflection:[], prompts:["Which setting did you assess and what was the most important need you found?","Which sources most shaped your argument?","How did this paper set up your later performances?"]
+  },
+  {
+    id:"curriculum", icon:"📓", title:"Curriculum Project", page:14,
+    course:"Add course code", term:"Add term", status:"progress",
+    summary:"Field experience with a reflective journal documenting plans, experiences and improvements in a local school or workplace.",
+    overview:"Through field experience in a local school or workplace, I kept a reflective journal documenting what I planned, what happened, and the improvements I made as a result.",
+    highlights:["Field experience in a real setting","Ongoing reflective journal","Documented cycle of planning, action and improvement"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.2", how:""},
+      {code:"ISTE 4.3", how:""},
+      {code:"AECT 3", how:""},
+      {code:"AECT 4", how:""}
+    ],
+    reflection:[], prompts:["Where did you complete your field experience?","Share one journal entry that captures a turning point.","What improvement are you most proud of?"]
+  },
+  {
+    id:"design", icon:"🧠", title:"Instructional Design", page:20,
+    course:"Add course code", term:"Add term", status:"progress",
+    summary:"Lessons or modules on a topic of strategic importance, including teacher professional development grounded in adult learning.",
+    overview:"I designed and developed instruction on a topic of strategic importance to a local curriculum. For the ISTE-C track, this includes professional development for teachers informed by the principles of adult learning.",
+    highlights:["Needs-driven topic selection","Professional development built on adult-learning principles","Developed, tested and refined materials"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.4", how:""},
+      {code:"ISTE 4.5", how:""},
+      {code:"AECT 1", how:""},
+      {code:"AECT 2", how:""}
+    ],
+    reflection:[], prompts:["Which design model guided you (e.g. ADDIE, backward design)?","How did adult-learning principles change your design for teachers?","What did participants' feedback tell you?"]
+  },
+  {
+    id:"techplan", icon:"🗺️", title:"School or Workplace Technology Plan", page:23,
+    course:"Add course code", term:"Add term", status:"planned",
+    summary:"A strategic plan for using technology to deliver instruction, collect data and evaluate results, with schedule, configuration and budget.",
+    overview:"A strategic plan explaining how a school or workplace will achieve its goals by using technology to provide instruction, collect data and evaluate whether standards have been met. It includes a work schedule, hardware and software configuration, a proposed budget and a budget explanation.",
+    highlights:["Strategic goals linked to standards","Work schedule and hardware/software configuration","Proposed budget with justification"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.1", how:""},
+      {code:"ISTE 4.6", how:""},
+      {code:"ISTE 4.7", how:""},
+      {code:"AECT 3", how:""},
+      {code:"AECT 4", how:""}
+    ],
+    reflection:[], prompts:["What was the plan's central goal?","How did you balance cost, equity and sustainability?","How will success be measured?"]
+  },
+  {
+    id:"action", icon:"🧪", title:"Action Research Project", page:17,
+    course:"Add course code", term:"Add term", status:"planned",
+    summary:"A local experiment testing whether a nationally recognised best practice achieves results like those reported in the literature.",
+    overview:"In this major research paper I implement a nationally recognised best practice in a local school or workplace and investigate whether it produces results comparable to those reported in the research literature.",
+    highlights:["Research question grounded in the literature","Local implementation and data collection","Comparison of findings with published results"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.6", how:""},
+      {code:"ISTE 4.2", how:""},
+      {code:"AECT 5", how:""},
+      {code:"AECT 4", how:""}
+    ],
+    reflection:[], prompts:["Which best practice did you test, and why here?","What did the data show?","How will the findings change your practice?"]
+  }
+];
+
+const EXPERIENCE = [
+  {date:"May 2025 – Aug 2025",title:"Short-course Support Staff (Coding & Robotics)",org:"Wits Plus, University of the Witwatersrand",items:["Assisted educators with digital tools and unplugged coding activities to build computational thinking","Prepared multimedia resources and digital teaching materials and kept the technology running smoothly","Helped evaluate participant engagement and report outcomes"]},
+  {date:"Feb 2025 – Aug 2025",title:"Coding & Robotics Tutor (Foundation Phase educators)",org:"University of the Witwatersrand",items:["Delivered tutorial support on unplugged coding, computational thinking and age-appropriate digital tools","Guided pre-service teachers in designing interactive lessons with Scratch Junior and OctoStudio","Gave practical training and feedback on integrating coding and robotics using CAPS-aligned approaches"]},
+  {date:"Jul 2023 – Sep 2023",title:"Student Teacher",org:"Bernadino Heights High School, Cape Town",items:["Taught Life Sciences and Mathematical Literacy, making complex concepts clear","Set up demonstrations and supervised laboratory experiments"]},
+  {date:"Jan 2022 – Dec 2022",title:"Project Coordinator",org:"Nelson Mandela University, Gqeberha",items:["Provided academic support to remote schools","Facilitated Grade 10–12 mathematics and science sessions and prepared learners for examinations","Captured and analysed data, wrote reports, and coordinated events, operations and fundraising"]},
+  {date:"Nov 2021 – Dec 2022",title:"Administrative Assistant",org:"Department of Basic Education, Cala Circuit Office",items:["Analysed departmental documents for distribution","Supported circuit managers in improving operations","Captured, analysed and organised data"]},
+  {date:"Apr 2021 – Sep 2021",title:"Web Development Intern & Digital Associate",org:"CAPACITI, Cape Town",items:["Completed Python, HTML, CSS and JavaScript (ES6) training with a focus on responsive design","Built a fully functional educational website","Supported digital marketing, social media analytics and online engagement campaigns"]},
+  {date:"Jan 2021 – Apr 2021",title:"Educator Assistant",org:"KwaMagwaza Primary School, Melmoth",items:["Supported Grade 6–7 English and Social Sciences","Simplified lesson plans, presented lessons and supported learners who needed extra guidance"]}
+];
+const EDUCATION = [
+  {date:"Aug 2025 – Present",title:"Master of Education, Educational Technology",org:"University of Delaware, Newark",current:true,items:["National Standards Capstone ePortfolio aligned to ISTE and AECT standards","Six performances spanning learning design, research and technology planning"]},
+  {date:"Feb 2025 – Dec 2025",title:"Master of Education, Science and Technology",org:"University of the Witwatersrand, Johannesburg",items:["Science education with a technology focus"]},
+  {date:"Feb 2024 – Dec 2024",title:"BEd Honours, Science Education (cum laude)",org:"University of the Witwatersrand, Johannesburg",items:["Major: Life Sciences","Educational theory, research and enquiry; independent research project"]},
+  {date:"Feb 2023 – Dec 2023",title:"Postgraduate Certificate in Education (cum laude)",org:"Stellenbosch University",items:["Life Sciences and Mathematical Literacy","Curriculum studies, educational psychology, leadership and sustainable living"]},
+  {date:"Feb 2016 – Dec 2020",title:"BSc, Genetics and Microbiology",org:"University of the Free State, Bloemfontein",items:["Moshal Scholar","Genomics, molecular genetics, microbial ecology, pathogens and immunity"]}
+];
+
+/* ===================== APP LOGIC (no edits needed) ===================== */
+const $ = s=>document.querySelector(s), $$ = s=>[...document.querySelectorAll(s)];
+const statusLabel = {done:"Completed",progress:"In progress",planned:"Upcoming"};
+const codesOf = p => p.standards.map(s=>s.code);
+const isAect = c => STANDARDS[c] && STANDARDS[c].group==='AECT';
+const tagHTML = c => `<span class="tag ${isAect(c)?'aect':''}">${c}</span>`;
+const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const USED = Object.keys(STANDARDS).filter(c=>PERFORMANCES.some(p=>codesOf(p).includes(c)));
+const filled = s => s && !/^add\b/i.test(s.trim());
+
+function quoteHTML(code){
+  const s=STANDARDS[code];
+  return s.quote
+    ? `<blockquote class="std-quote">“${s.quote}”<cite>${code} ${s.name}</cite></blockquote>`
+    : `<p class="std-summary"><span>Summary</span>${s.desc}</p>`;
+}
+
+// Theme
+const sun='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+const moon='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+function setTheme(t){document.documentElement.dataset.theme=t;$('#themeIcon').innerHTML=t==='dark'?sun:moon;store.set('theme',t)}
+setTheme(store.get('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+$('#themeBtn').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+
+// Mobile menu
+$('#menuBtn').onclick=()=>{const o=$('#navLinks').classList.toggle('open');$('#menuBtn').setAttribute('aria-expanded',o)};
+$$('#navLinks a').forEach(a=>a.onclick=()=>$('#navLinks').classList.remove('open'));
+
+// Performance cards
+function renderCards(){
+  $('#perfGrid').innerHTML = PERFORMANCES.map((p,i)=>`
+    <button class="perf reveal" data-id="${p.id}" data-std="${codesOf(p).join('|')}" aria-label="Open ${p.title}">
+      <div class="perf-top"><span class="perf-num">Performance ${i+1}</span><span class="status ${p.status}">${statusLabel[p.status]}</span></div>
+      <h3>${p.title}</h3>
+      <p class="perf-desc">${p.summary}</p>
+      <div class="tags">${codesOf(p).map(tagHTML).join('')}</div>
+      <span class="perf-cta">View performance →</span>
+    </button>`).join('');
+  $$('.perf').forEach(c=>c.onclick=()=>openModal(c.dataset.id));
+}
+function renderFilters(){
+  $('#filters').innerHTML='<span class="label">Filter:</span><button class="chip" aria-pressed="true" data-f="all">All</button>'+
+    USED.map(c=>`<button class="chip ${isAect(c)?'aect':''}" aria-pressed="false" data-f="${c}" title="${STANDARDS[c].name}">${c}</button>`).join('');
+  $$('#filters .chip').forEach(ch=>ch.onclick=()=>applyFilter(ch.dataset.f));
+}
+function applyFilter(f){
+  $$('#filters .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.f===f));
+  $$('.perf').forEach(c=>c.classList.toggle('dim',f!=='all'&&!c.dataset.std.split('|').includes(f)));
+}
+
+// Matrix
+function renderMatrix(){
+  const iste=USED.filter(c=>!isAect(c)), aect=USED.filter(isAect);
+  let h='<thead><tr><th></th>';
+  if(iste.length)h+=`<th colspan="${iste.length}" class="group">ISTE Standards for Coaches</th>`;
+  if(aect.length)h+=`<th colspan="${aect.length}" class="group">AECT Standards</th>`;
+  h+='</tr><tr><th style="text-align:left">Performance</th>';
+  USED.forEach((c,ci)=>h+=`<th class="${isAect(c)?'aect-col':''}" data-col="${ci}"><button data-code="${c}" title="${STANDARDS[c].name}">${c.replace('ISTE ','').replace('AECT ','A')}</button></th>`);
+  h+='</tr></thead><tbody>';
+  PERFORMANCES.forEach(p=>{
+    h+=`<tr><th><button data-open="${p.id}">${p.title}</button></th>`;
+    USED.forEach((c,ci)=>h+=`<td class="${isAect(c)?'aect-col':''}" data-col="${ci}">${codesOf(p).includes(c)?`<span class="cell-dot" title="${p.title} · ${c}"></span>`:''}</td>`);
+    h+='</tr>';
+  });
+  $('#matrix').innerHTML=h+'</tbody>';
+  $$('#matrix thead button').forEach(b=>b.onclick=()=>selectStandard(b.dataset.code));
+  $$('#matrix [data-open]').forEach(b=>b.onclick=()=>openModal(b.dataset.open, 'standards'));
+}
+function selectStandard(code){
+  const ci=USED.indexOf(code), s=STANDARDS[code];
+  $$('#matrix thead button').forEach(b=>b.classList.toggle('on',b.dataset.code===code));
+  $$('#matrix [data-col]').forEach(el=>el.classList.toggle('hl',+el.dataset.col===ci));
+  const list=PERFORMANCES.filter(p=>codesOf(p).includes(code));
+  $('#stdDetail').innerHTML=`<h4>${code}: ${s.name}</h4>${quoteHTML(code)}
+    <div class="met-list">${list.map(p=>{const e=p.standards.find(x=>x.code===code);
+      return `<div class="met"><a href="#" data-open="${p.id}">${p.title}</a><p>${filled(e.how)?e.how:'<em>Explanation coming soon.</em>'}</p></div>`}).join('')}</div>`;
+  $$('#stdDetail [data-open]').forEach(a=>a.onclick=e=>{e.preventDefault();openModal(a.dataset.open,'standards')});
+}
+
+// Modal
+let current=null, lastFocus=null;
+function openModal(id, tab){
+  current=PERFORMANCES.find(p=>p.id===id); if(!current)return;
+  if(!$('#modal').classList.contains('open'))lastFocus=document.activeElement;
+  $('#mKicker').textContent='Performance '+(PERFORMANCES.indexOf(current)+1);
+  $('#mTitle').textContent=current.title;
+  showTab(tab||'overview');
+  $('#modal').classList.add('open'); document.body.style.overflow='hidden';
+  $('#mClose').focus();
+  history.replaceState(null,'',location.pathname+location.search+'#p-'+id);
+}
+function closeModal(){
+  $('#modal').classList.remove('open'); document.body.style.overflow='';
+  history.replaceState(null,'',location.pathname+location.search+'#performances'); lastFocus&&lastFocus.focus();
+}
+function showTab(t){
+  $$('.mtab').forEach(b=>b.setAttribute('aria-selected',b.dataset.mt===t));
+  const p=current, i=PERFORMANCES.indexOf(p); let h='';
+  if(t==='overview'){
+    h=`<p>${p.overview}</p>
+      <div class="meta-grid">
+        <div class="meta"><small>Course</small><strong>${p.course}</strong></div>
+        <div class="meta"><small>Term</small><strong>${p.term}</strong></div>
+        <div class="meta"><small>Status</small><strong>${statusLabel[p.status]}</strong></div>
+      </div>
+      <h5>Key features</h5><ul>${p.highlights.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <h5>Standards practiced</h5><div class="tags">${codesOf(p).map(tagHTML).join('')}</div>
+      <p style="margin-top:10px"><button class="linkish" data-tab="standards">See how this performance met each standard →</button></p>
+      <h5>Program requirement</h5><p><a href="${FRAMEWORK}#page=${p.page}" target="_blank" rel="noopener">Read the requirement in the EDTC Program Assessment Framework ↗</a></p>`;
+  } else if(t==='standards'){
+    h=`<p style="margin-bottom:16px">This performance let me practice the following standards. Each is quoted, followed by how I met it.</p>`+
+      p.standards.map(({code,how})=>{const s=STANDARDS[code];return `
+        <div class="std-block">
+          <div class="std-block-head"><span class="code ${s.group==='AECT'?'aect':''}">${code}</span><h6>${s.name}</h6></div>
+          ${quoteHTML(code)}
+          <div class="how"><strong>How I met this standard</strong>
+            ${filled(how)?`<p>${how}</p>`:`<p class="pending">Explanation coming soon.</p>`}
+          </div>
+        </div>`}).join('');
+  } else if(t==='artifact'){
+    if(filled(p.artifact)){
+      const isPdf=/\.pdf($|\?)/i.test(p.artifact), embeddable=isPdf||/drive\.google\.com|docs\.google\.com|\.html?$/i.test(p.artifact);
+      h=`${embeddable?`<div class="artifact-box"><iframe src="${p.artifact}" title="${p.title} artifact" loading="lazy"></iframe></div>`:''}
+        <div class="btn-row" style="margin-top:14px"><a class="btn btn-primary" href="${p.artifact}" target="_blank" rel="noopener">Open artifact in new tab ↗</a>${isPdf?`<a class="btn btn-ghost" href="${p.artifact}" download>Download</a>`:''}</div>`;
+    } else {
+      h=`<div class="artifact-box"><div class="artifact-empty"><div class="big">📎</div><p><strong>Artifact coming soon.</strong></p><p>This performance's artifact will be shared here once it is finalised.</p></div></div>`;
+    }
+  } else {
+    h = p.reflection.length ? p.reflection.map(x=>`<p style="margin-bottom:12px">${x}</p>`).join('')
+      : `<div class="draft"><strong>Reflection in progress. Guiding questions:</strong><ul>${p.prompts.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  }
+  const prev=PERFORMANCES[i-1], next=PERFORMANCES[i+1];
+  h+=`<div class="modal-nav">${prev?`<button class="btn btn-ghost" data-go="${prev.id}">← ${prev.title}</button>`:'<span></span>'}${next?`<button class="btn btn-ghost" data-go="${next.id}">${next.title} →</button>`:''}</div>`;
+  $('#mBody').innerHTML=h; $('.modal-box').scrollTop=0;
+  $$('#mBody [data-go]').forEach(b=>b.onclick=()=>openModal(b.dataset.go,t));
+  $$('#mBody [data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+}
+$$('.mtab').forEach(b=>b.onclick=()=>showTab(b.dataset.mt));
+$('#mClose').onclick=closeModal;
+$('#modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
+document.addEventListener('keydown',e=>{
+  if(!$('#modal').classList.contains('open'))return;
+  if(e.key==='Escape')closeModal();
+  if(e.key==='Tab'){const f=$$('#modal button, #modal a, #modal iframe').filter(x=>x.offsetParent);if(!f.length)return;
+    if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+    else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}}
+  if((e.key==='ArrowRight'||e.key==='ArrowLeft')&&e.target.classList.contains('mtab')){
+    const t=$$('.mtab'),k=t.indexOf(e.target),n=t[(k+(e.key==='ArrowRight'?1:t.length-1))%t.length];n.focus();n.click()}
+});
+
+// Timeline
+function renderTimeline(which){
+  const data=which==='education'?EDUCATION:EXPERIENCE;
+  $('#timeline').innerHTML=data.map((d,i)=>`
+    <div class="tl-item ${d.current?'current':''} ${i===0?'open':''}">
+      <div class="tl-card">
+        <button class="tl-head" aria-expanded="${i===0}"><div><h4>${d.title}</h4><div class="tl-org">${d.org}</div></div><span class="tl-date">${d.date}</span></button>
+        <div class="tl-body"><div><ul>${d.items.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>
+      </div>
+    </div>`).join('');
+  $$('.tl-head').forEach(b=>b.onclick=()=>{const it=b.closest('.tl-item');const o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+}
+$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));renderTimeline(t.dataset.tl)});
+
+// Scroll effects
+function onScroll(){
+  const st=scrollY, h=document.documentElement.scrollHeight-innerHeight;
+  $('#progress').style.width=(h>0?st/h*100:0)+'%';
+  $('#nav').classList.toggle('scrolled',st>10);
+  $('#toTop').classList.toggle('show',st>600);
+  let cur=''; $$('main section[id]').forEach(s=>{if(s.offsetTop-120<=st)cur=s.id});
+  $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+}
+addEventListener('scroll',onScroll,{passive:true});
+$('#toTop').onclick=()=>scrollTo({top:0});
+
+function observe(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return; const t=e.target; t.classList.add('in');
+    if(t.dataset.w)t.style.width=t.dataset.w+'%';
+    io.unobserve(t);
+  }),{threshold:.15});
+  $$('.reveal,.bar i').forEach(el=>io.observe(el));
+}
+
+// Copy email
+$('#copyEmail').onclick=async()=>{
+  const em='sindiswathembisile18@gmail.com';
+  try{await navigator.clipboard.writeText(em);toast('Email copied')}catch(e){toast(em)}
+};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+// Review checklist: add ?review to the address to see what's missing before submitting
+function renderReview(){
+  const rows=[], miss=(ok,txt,id)=>rows.push({ok,txt,id});
+  miss(filled(GRADUATION),'Graduation semester set (GRADUATION)');
+  USED.forEach(c=>miss(!!STANDARDS[c].quote,`${c} ${STANDARDS[c].name}: official wording quoted`));
+  PERFORMANCES.forEach((p,i)=>{
+    miss(filled(p.artifact),`P${i+1} ${p.title}: artifact added`,p.id);
+    p.standards.forEach(s=>miss(filled(s.how),`P${i+1} ${p.title}: explanation for ${s.code}`,p.id));
+  });
+  const done=rows.filter(r=>r.ok).length, all=rows.length;
+  const box=document.createElement('aside'); box.className='review'; box.setAttribute('aria-label','Submission checklist');
+  box.innerHTML=`<div class="review-head"><strong>Submission checklist</strong><span>${done}/${all}</span><button aria-label="Collapse checklist">–</button></div>
+    <div class="review-bar"><i style="width:${done/all*100}%"></i></div>
+    <div class="review-list">${done===all?'<p class="ok-all">Everything the submission form checks for is in place. Make sure your repository is public, then submit.</p>':''}
+    ${rows.filter(r=>!r.ok).map(r=>`<div class="rv">${r.id?`<a href="#" data-open="${r.id}">${r.txt}</a>`:r.txt}</div>`).join('')}</div>`;
+  document.body.appendChild(box);
+  box.querySelector('.review-head button').onclick=()=>box.classList.toggle('min');
+  box.querySelectorAll('[data-open]').forEach(a=>a.onclick=e=>{e.preventDefault();openModal(a.dataset.open,'standards')});
+}
+
+// Init
+$('#year').textContent=new Date().getFullYear();
+$('#stdCount').textContent=USED.length;
+if(filled(GRADUATION))$('#gradLine').textContent='Expected graduation: '+GRADUATION;
+renderFilters(); renderCards(); renderMatrix(); renderTimeline('experience'); observe(); onScroll();
+if(new URLSearchParams(location.search).has('review'))renderReview();
+if(location.hash.startsWith('#p-'))openModal(location.hash.slice(3));
+</script>
+</body>
+</html>
