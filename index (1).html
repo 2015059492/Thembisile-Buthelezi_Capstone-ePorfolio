@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thembisile Buthelezi · Educational Technology ePortfolio</title>
+<meta name="description" content="Capstone ePortfolio of Thembisile Buthelezi, M.Ed. Educational Technology candidate at the University of Delaware: master's performances aligned to ISTE and AECT standards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#00539F; --blue-deep:#003A70; --gold:#FFD200; --gold-soft:#FFF4B8;
+  --bg:#F7F8FB; --surface:#FFFFFF; --surface-2:#EEF2F8; --text:#13213A; --muted:#5A6781;
+  --border:#DCE3EE; --shadow:0 10px 30px -12px rgba(0,40,90,.18);
+  --radius:18px; --maxw:1180px;
+  --font-display:'Fraunces',Georgia,serif; --font-body:'Inter',system-ui,sans-serif;
+}
+:root[data-theme="dark"]{
+  --bg:#0A1424; --surface:#111E33; --surface-2:#172843; --text:#E8EEF8; --muted:#9AA8C0;
+  --border:#22385A; --shadow:0 10px 30px -12px rgba(0,0,0,.6); --gold-soft:#3A3410;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:10px;background:var(--gold);color:#000;padding:8px 14px;border-radius:8px;z-index:200}
+.skip:focus{left:10px}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),#fff07a);z-index:120}
+header.nav{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.nav.scrolled{border-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.brand-mark{width:36px;height:36px;border-radius:10px;background:var(--blue);color:var(--gold);display:grid;place-items:center;font-family:var(--font-display);font-size:16px}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{text-decoration:none;padding:8px 12px;border-radius:999px;font-size:14px;font-weight:500;color:var(--muted);transition:.2s}
+.nav-links a:hover{color:var(--text);background:var(--surface-2)}
+.nav-links a.active{color:var(--blue);background:var(--surface-2)}
+:root[data-theme="dark"] .nav-links a.active{color:var(--gold)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.icon-btn{width:40px;height:40px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);display:grid;place-items:center}
+.icon-btn svg{width:18px;height:18px}
+#menuBtn{display:none}
+@media(max-width:900px){
+  #menuBtn{display:grid}
+  .nav-links{position:fixed;inset:68px 0 auto 0;flex-direction:column;background:var(--surface);padding:12px 20px 20px;border-bottom:1px solid var(--border);transform:translateY(-120%);transition:transform .3s;box-shadow:var(--shadow)}
+  .nav-links.open{transform:none}
+  .nav-links a{display:block;padding:12px}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:80px 0 90px;background:radial-gradient(1200px 500px at 85% -10%,rgba(0,83,159,.16),transparent 60%),radial-gradient(700px 400px at -10% 110%,rgba(255,210,0,.18),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:var(--surface);border:1px solid var(--border);padding:6px 12px;border-radius:999px}
+:root[data-theme="dark"] .eyebrow{color:var(--gold)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(255,210,0,.25)}
+h1{font-family:var(--font-display);font-size:clamp(40px,6vw,68px);line-height:1.05;margin:18px 0 14px;letter-spacing:-.02em}
+h1 .accent{color:var(--blue)}
+:root[data-theme="dark"] h1 .accent{color:var(--gold)}
+.typed-line{font-size:clamp(18px,2.2vw,22px);color:var(--muted);min-height:1.6em}
+.typed{color:var(--text);font-weight:600;border-right:2px solid var(--gold);padding-right:3px}
+.hero p.lead{margin:18px 0 28px;max-width:58ch;color:var(--muted)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px -8px rgba(0,83,159,.6)}
+.btn-ghost{background:var(--surface);border-color:var(--border);color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}
+.stat b{display:block;font-family:var(--font-display);font-size:28px;color:var(--blue)}
+:root[data-theme="dark"] .stat b{color:var(--gold)}
+.stat span{font-size:13px;color:var(--muted)}
+.portrait{position:relative;aspect-ratio:1;max-width:380px;margin-left:auto}
+.portrait .ring{position:absolute;inset:-14px;border-radius:50%;border:2px dashed var(--gold);animation:spin 40s linear infinite}
+.portrait .frame{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,var(--blue),var(--blue-deep));display:grid;place-items:center;box-shadow:var(--shadow)}
+.portrait .frame img{width:100%;height:100%;object-fit:cover}
+.portrait .initials{font-family:var(--font-display);font-size:110px;color:var(--gold)}
+.badge-float{position:absolute;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center;animation:float 5s ease-in-out infinite}
+.badge-float.b1{left:-30px;bottom:40px}
+.badge-float.b2{right:-10px;top:24px;animation-delay:-2.5s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-10px)}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.portrait{margin:0 auto;max-width:260px;order:-1}.stats{grid-template-columns:repeat(2,1fr)}.badge-float.b1{left:-10px}}
+
+/* sections */
+section{padding:90px 0}
+.section-head{max-width:720px;margin-bottom:40px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+:root[data-theme="dark"] .kicker{color:var(--gold)}
+h2{font-family:var(--font-display);font-size:clamp(30px,4vw,44px);line-height:1.15;margin:8px 0 12px;letter-spacing:-.01em}
+.section-head p{color:var(--muted)}
+.alt{background:var(--surface)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
+.about-grid p{margin-bottom:14px;color:var(--muted)}
+.about-grid p strong{color:var(--text)}
+.focus-list{display:grid;gap:12px}
+.focus{display:flex;gap:14px;padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--bg)}
+.focus .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;font-size:20px}
+.focus h4{font-size:15px}
+.focus p{font-size:14px;margin:0}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+/* filter chips */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;align-items:center}
+.filters .label{font-size:13px;font-weight:600;color:var(--muted);margin-right:4px}
+.chip{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:7px 14px;border-radius:999px;font-size:13px;font-weight:500;transition:.2s}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.chip.aect[aria-pressed="true"]{background:var(--gold);color:#13213A;border-color:var(--gold)}
+
+/* performance cards */
+.perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.perf{position:relative;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px;color:var(--text);transition:transform .25s,box-shadow .25s,opacity .3s,border-color .25s}
+.perf:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
+.perf.dim{opacity:.28;transform:scale(.98)}
+.perf.capstone{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;border:none}
+.perf.capstone .perf-desc,.perf.capstone .perf-num{color:rgba(255,255,255,.8)}
+.perf-top{display:flex;justify-content:space-between;align-items:center}
+.perf-num{font-family:var(--font-display);font-size:14px;color:var(--muted)}
+.perf-icon{font-size:30px}
+.perf h3{font-family:var(--font-display);font-size:22px;line-height:1.2}
+.perf-desc{font-size:14px;color:var(--muted);flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;background:rgba(0,83,159,.1);color:var(--blue)}
+:root[data-theme="dark"] .tag{background:rgba(120,170,255,.15);color:#9cc3ff}
+.tag.aect{background:var(--gold-soft);color:#6b5600}
+:root[data-theme="dark"] .tag.aect{color:var(--gold)}
+.perf.capstone .tag{background:rgba(255,255,255,.15);color:#fff}
+.perf.capstone .tag.aect{background:var(--gold);color:#13213A}
+.status{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:999px}
+.status.done{background:#DDF5E6;color:#17663A}
+.status.progress{background:#FFF1CC;color:#7A5A00}
+.status.planned{background:var(--surface-2);color:var(--muted)}
+.perf-cta{font-size:14px;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:6px}
+:root[data-theme="dark"] .perf-cta{color:var(--gold)}
+.perf.capstone .perf-cta{color:var(--gold)}
+.perf-cta span{transition:transform .2s}
+.perf:hover .perf-cta span{transform:translateX(4px)}
+
+/* matrix */
+.matrix-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
+table.matrix{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
+.matrix th,.matrix td{padding:12px 10px;border-bottom:1px solid var(--border);text-align:center}
+.matrix thead th{font-size:12px;vertical-align:bottom;background:var(--surface)}
+.matrix thead th button{background:none;border:none;color:var(--text);font-weight:700;font-size:12px;padding:4px 6px;border-radius:6px}
+.matrix thead th button:hover,.matrix thead th button.on{background:var(--blue);color:#fff}
+.matrix thead th.aect-col button:hover,.matrix thead th.aect-col button.on{background:var(--gold);color:#13213A}
+.matrix tbody th{text-align:left;font-weight:600;white-space:nowrap}
+.matrix tbody th button{background:none;border:none;color:var(--text);font-weight:600;text-align:left}
+.matrix tbody th button:hover{color:var(--blue);text-decoration:underline}
+.matrix .group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cell-dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--blue);transition:transform .2s}
+.aect-col .cell-dot,td.aect-col .cell-dot{background:var(--gold)}
+td.hl,th.hl{background:rgba(255,210,0,.12)}
+tr.hl td,tr.hl th{background:rgba(0,83,159,.06)}
+td.hl .cell-dot,tr.hl .cell-dot{transform:scale(1.3)}
+.std-detail{margin-top:20px;padding:20px;border-radius:14px;border:1px dashed var(--border);background:var(--surface);min-height:84px}
+.std-detail h4{font-family:var(--font-display);font-size:20px;margin-bottom:4px}
+.std-detail p{color:var(--muted);font-size:14px}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* timeline */
+.tabs{display:inline-flex;background:var(--surface-2);border-radius:12px;padding:4px;margin-bottom:30px}
+.tab{border:none;background:none;padding:10px 18px;border-radius:9px;font-weight:600;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--blue),var(--gold))}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:"";position:absolute;left:-28px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--blue)}
+.tl-item.current::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(255,210,0,.3)}
+.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.tl-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;width:100%;background:none;border:none;color:var(--text);text-align:left}
+.tl-head h4{font-size:17px}
+.tl-date{font-size:13px;font-weight:600;color:var(--blue);white-space:nowrap}
+:root[data-theme="dark"] .tl-date{color:var(--gold)}
+.tl-org{font-size:14px;color:var(--muted)}
+.tl-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.tl-body>div{overflow:hidden}
+.tl-item.open .tl-body{grid-template-rows:1fr}
+.tl-body ul{margin:12px 0 0 18px;color:var(--muted);font-size:14px}
+.tl-body li{margin-bottom:4px}
+.tl-toggle{font-size:13px;color:var(--blue);font-weight:600;margin-top:6px;display:inline-block}
+:root[data-theme="dark"] .tl-toggle{color:var(--gold)}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.skill-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.skill-card h4{font-family:var(--font-display);font-size:19px;margin-bottom:14px;display:flex;gap:10px;align-items:center}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border)}
+.lang{margin-bottom:12px}
+.lang-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.bar{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:99px;transition:width 1.2s ease}
+
+/* honors */
+.honors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.honor{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;transition:transform .2s}
+.honor:hover{transform:translateY(-3px)}
+.honor .y{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.05em}
+:root[data-theme="dark"] .honor .y{color:var(--gold)}
+.honor h4{font-size:16px;margin:6px 0 4px}
+.honor p{font-size:14px;color:var(--muted)}
+.feature{margin-top:24px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:28px;border-radius:var(--radius);background:linear-gradient(120deg,var(--gold-soft),transparent);border:1px solid var(--border)}
+.feature .big{font-size:44px}
+.feature h3{font-family:var(--font-display);font-size:24px}
+.feature p{color:var(--muted)}
+
+/* contact */
+.contact{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;border-radius:28px;padding:56px 40px;text-align:center;position:relative;overflow:hidden}
+.contact::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,210,0,.15);right:-100px;top:-120px}
+.contact h2{color:#fff}
+.contact p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 26px}
+.contact .btn-ghost{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#fff}
+.contact .btn-gold{background:var(--gold);color:#13213A}
+footer{padding:36px 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,15,30,.6);backdrop-filter:blur(4px)}
+.modal.open{display:flex;animation:fade .2s}
+.modal-box{background:var(--surface);color:var(--text);width:min(860px,100%);max-height:90vh;overflow:auto;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:pop .25s}
+.modal-head{position:sticky;top:0;background:var(--surface);padding:24px 28px 0;border-bottom:1px solid var(--border);z-index:2}
+.modal-head .row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.modal-head h3{font-family:var(--font-display);font-size:28px;line-height:1.15;margin:4px 0 14px}
+.modal-tabs{display:flex;gap:4px;overflow-x:auto}
+.mtab{border:none;background:none;padding:10px 14px;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.mtab[aria-selected="true"]{color:var(--blue);border-color:var(--gold)}
+:root[data-theme="dark"] .mtab[aria-selected="true"]{color:var(--gold)}
+.modal-body{padding:24px 28px 30px}
+.modal-body h5{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+.modal-body p,.modal-body li{color:var(--muted)}
+.modal-body ul{margin-left:18px}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:6px}
+.meta{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px}
+.meta small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.meta strong{font-size:14px}
+.artifact-box{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg)}
+.artifact-box iframe{width:100%;height:440px;border:0;background:#fff}
+.artifact-empty{padding:40px 20px;text-align:center;color:var(--muted)}
+.artifact-empty .big{font-size:40px}
+.draft{border:2px dashed var(--gold);border-radius:14px;padding:18px;background:var(--gold-soft)}
+.draft strong{color:var(--text);font-size:13px;display:block;margin-bottom:6px}
+.draft li{color:var(--text);opacity:.8}
+.std-row{display:flex;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px;margin-bottom:10px;background:var(--bg)}
+.std-row .code{flex:none;font-weight:800;font-size:13px;width:70px;height:fit-content;text-align:center;padding:6px;border-radius:8px;background:var(--blue);color:#fff}
+.std-row .code.aect{background:var(--gold);color:#13213A}
+.std-row h6{font-size:15px;color:var(--text);margin-bottom:2px}
+.std-row p{font-size:14px}
+.modal-nav{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:18px;border-top:1px solid var(--border)}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{transform:translateY(16px) scale(.98);opacity:0}}
+
+/* misc */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+#toTop{position:fixed;right:20px;bottom:20px;z-index:90;opacity:0;pointer-events:none;transition:.3s;background:var(--blue);color:#fff;border:none}
+#toTop.show{opacity:1;pointer-events:auto}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,40px);background:var(--text);color:var(--bg);padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;transition:.3s;z-index:200}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+@media print{header.nav,#toTop,#progress,.filters,.contact .btn-row{display:none}.reveal{opacity:1;transform:none}section{padding:30px 0}}
+
+/* standards quotes + explanations */
+.grad-line{font-size:14px;font-weight:600;color:var(--muted);margin:-4px 0 6px}
+.grad-line:empty{display:none}
+.std-quote{margin:10px 0;padding:12px 16px;border-left:4px solid var(--blue);background:var(--surface-2);border-radius:0 10px 10px 0;font-style:italic;color:var(--text)}
+.std-quote cite{display:block;margin-top:6px;font-size:12px;font-style:normal;font-weight:600;color:var(--muted)}
+.std-summary{margin:10px 0;color:var(--muted);font-size:14px}
+.std-summary span{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--surface-2);padding:2px 6px;border-radius:4px;margin-right:6px;vertical-align:1px}
+.std-block{padding:18px;border:1px solid var(--border);border-radius:14px;margin-bottom:14px;background:var(--bg)}
+.std-block-head{display:flex;gap:12px;align-items:center}
+.std-block-head .code{font-weight:800;font-size:12px;padding:5px 9px;border-radius:8px;background:var(--blue);color:#fff;white-space:nowrap}
+.std-block-head .code.aect{background:var(--gold);color:#13213A}
+.std-block-head h6{font-size:16px;color:var(--text)}
+.how strong{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+:root[data-theme="dark"] .how strong{color:var(--gold)}
+.how p{color:var(--text)!important}
+.how p.pending{color:var(--muted)!important;font-style:italic}
+.linkish{background:none;border:none;color:var(--blue);font-weight:600;padding:0}
+:root[data-theme="dark"] .linkish{color:var(--gold)}
+.met-list{display:grid;gap:10px;margin-top:12px}
+.met{padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg)}
+.met a{font-weight:600;text-decoration:none;color:var(--text)}
+.met p{margin-top:4px}
+/* review checklist (?review) */
+.review{position:fixed;left:20px;bottom:20px;z-index:140;width:min(360px,calc(100% - 40px));background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);font-size:13px}
+.review-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.review-head strong{flex:1}
+.review-head span{font-weight:700;color:var(--blue)}
+.review-head button{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;width:28px;height:28px}
+.review-bar{height:6px;background:var(--surface-2);margin:0 14px}
+.review-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold))}
+.review-list{max-height:40vh;overflow:auto;padding:10px 14px 14px}
+.rv{padding:6px 0;border-bottom:1px solid var(--border);color:var(--muted)}
+.rv::before{content:"○ ";color:var(--gold)}
+.rv a{color:var(--text)}
+.ok-all{color:#17663A;font-weight:600}
+.review.min .review-list,.review.min .review-bar{display:none}
+@media print{.review{display:none}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand"><span class="brand-mark">TB</span><span>Thembisile Buthelezi</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#performances">Performances</a></li>
+      <li><a href="#standards">Standards</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>M.Ed. Educational Technology · University of Delaware</span>
+      <h1>Designing learning that <span class="accent">works for every learner.</span></h1>
+      <div class="grad-line" id="gradLine"></div>
+      <div class="typed-line">I am an <span class="typed" id="typed">educational technologist</span></div>
+      <p class="lead">Welcome to my capstone ePortfolio. Here you'll find the six performances of my master's program, each mapped to the ISTE and AECT standards they helped me practice, alongside the science-education and coding experience I bring from South Africa.</p>
+      <div class="btn-row">
+        <a href="#performances" class="btn btn-primary">Explore my performances →</a>
+        <a href="assets/Thembisile-Buthelezi-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Download résumé</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b data-count="6">0</b><span>Master's performances</span></div>
+        <div class="stat"><b data-count="12" id="stdCount">0</b><span>Standards addressed</span></div>
+        <div class="stat"><b data-count="5">0</b><span>Degrees &amp; qualifications</span></div>
+        <div class="stat"><b data-count="3">0</b><span>Cum laude &amp; academic awards</span></div>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="ring"></div>
+      <div class="frame" id="photoFrame">
+        <img src="assets/profile.jpg" alt="Portrait of Thembisile Buthelezi" onerror="this.remove();document.getElementById('photoFrame').insertAdjacentHTML('beforeend','<span class=initials>TB</span>')">
+      </div>
+      <div class="badge-float b1">🧬 Science educator</div>
+      <div class="badge-float b2">🤖 Coding &amp; robotics</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="kicker">About me</span>
+      <h2>From the genetics lab to the digital classroom</h2>
+      <p>I'm <strong>Thembisile Buthelezi</strong>, a Master of Education candidate in <strong>Educational Technology at the University of Delaware</strong>. My path began with a BSc in Genetics and Microbiology, and grew into teaching through a PGCE (cum laude) and a BEd Honours in Science Education (cum laude).</p>
+      <p>Along the way I taught Life Sciences and Mathematical Literacy, supported remote schools with mathematics and science, and tutored pre-service Foundation Phase teachers in <strong>coding and robotics</strong> with Scratch Junior and OctoStudio.</p>
+      <p>I believe technology should widen access, not narrow it. My work focuses on designing blended, collaborative learning experiences grounded in research and in the real needs of learners and educators.</p>
+    </div>
+    <div class="focus-list reveal">
+      <div class="focus"><div class="ic">🎯</div><div><h4>Learning design</h4><p>Blended and multimedia environments with varied, authentic assessment.</p></div></div>
+      <div class="focus"><div class="ic">🧩</div><div><h4>Computational thinking</h4><p>Unplugged and digital coding activities for early learners and teachers.</p></div></div>
+      <div class="focus"><div class="ic">📊</div><div><h4>Research-informed practice</h4><p>Qualitative and quantitative methods to test what works locally.</p></div></div>
+      <div class="focus"><div class="ic">🤝</div><div><h4>Educator development</h4><p>Professional learning shaped by principles of adult learning.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCES -->
+<section id="performances">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Master's performances</span>
+      <h2>Six performances</h2>
+      <p>This site is my National Standards Capstone ePortfolio. It presents the six performances every EDTC candidate completes and, for each one, quotes the ISTE and AECT standards it let me practice and explains in my own words how I met them. Select a card to see the overview, standards, artifact and reflection, or use the filters to find the performances that address a particular standard.</p>
+    </div>
+    <div class="filters reveal" id="filters" role="group" aria-label="Filter performances by standard"></div>
+    <div class="perf-grid" id="perfGrid"></div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section id="standards" class="alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Standards alignment</span>
+      <h2>How my work maps to ISTE and AECT</h2>
+      <p>Select a standard (column) to read it and see how each performance met it. Select a performance (row) to open its standards.</p>
+    </div>
+    <div class="matrix-wrap reveal"><table class="matrix" id="matrix"></table></div>
+    <div class="std-detail reveal" id="stdDetail" aria-live="polite">
+      <h4>Select a standard</h4>
+      <p>Choose any column heading above to read the standard and how my work met it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">My journey</span>
+      <h2>Education &amp; experience</h2>
+      <p>Select an entry to expand the details.</p>
+    </div>
+    <div class="tabs reveal" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tl="experience">Experience</button>
+      <button class="tab" role="tab" aria-selected="false" data-tl="education">Education</button>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Toolkit</span>
+      <h2>Skills &amp; languages</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><h4>🖥️ EdTech &amp; LMS</h4><div class="pill-row"><span class="pill">Canvas</span><span class="pill">Scratch Junior</span><span class="pill">OctoStudio</span><span class="pill">Camtasia</span><span class="pill">Unplugged coding</span></div></div>
+      <div class="skill-card reveal"><h4>🎨 Content development</h4><div class="pill-row"><span class="pill">Multimedia resources</span><span class="pill">Interactive lessons</span><span class="pill">Infographics</span><span class="pill">Instructional video</span></div></div>
+      <div class="skill-card reveal"><h4>💻 Web &amp; code</h4><div class="pill-row"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">Python</span><span class="pill">Responsive design</span></div></div>
+      <div class="skill-card reveal"><h4>🔬 Research</h4><div class="pill-row"><span class="pill">Qualitative methods</span><span class="pill">Quantitative methods</span><span class="pill">Data collection</span><span class="pill">Data analysis</span><span class="pill">Literature review</span></div></div>
+      <div class="skill-card reveal"><h4>🤝 Professional</h4><div class="pill-row"><span class="pill">Collaboration</span><span class="pill">Communication</span><span class="pill">Problem solving</span><span class="pill">Innovation</span><span class="pill">Event coordination</span></div></div>
+      <div class="skill-card reveal"><h4>🌍 Languages</h4>
+        <div class="lang"><div class="lang-row"><span>English</span><span>Fluent</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="lang"><div class="lang-row"><span>isiZulu</span><span>Fluent</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="lang"><div class="lang-row"><span>isiXhosa</span><span>Fluent</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="lang"><div class="lang-row"><span>Sesotho</span><span>Beginner</span></div><div class="bar"><i data-w="30"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS -->
+<section id="honors">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Recognition &amp; service</span>
+      <h2>Honors and community</h2>
+    </div>
+    <div class="honors">
+      <div class="honor reveal"><div class="y">2025</div><h4>Academic Award</h4><p>Noswal Hall, University of the Witwatersrand</p></div>
+      <div class="honor reveal"><div class="y">2024</div><h4>Cum Laude, BEd Honours</h4><p>Science Education, University of the Witwatersrand</p></div>
+      <div class="honor reveal"><div class="y">2023</div><h4>Cum Laude, PGCE</h4><p>Stellenbosch University</p></div>
+      <div class="honor reveal"><div class="y">2016 – 2020</div><h4>Moshal Scholarship</h4><p>Full undergraduate scholarship, plus a 2019 Community Service Involvement Certificate</p></div>
+    </div>
+    <div class="feature reveal">
+      <div class="big">💛</div>
+      <div><h3>Founder &amp; Chairperson, Sithandani Foundation</h3><p>A registered non-profit organisation (NPO 282-967) I founded to give back to my community.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <h2>Let's connect</h2>
+      <p>I'm always happy to talk about learning design, educational technology, and bringing coding into classrooms.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-gold" href="mailto:sindiswathembisile18@gmail.com">✉️ Email me</a>
+        <button class="btn btn-ghost" id="copyEmail">Copy email address</button>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> Thembisile Buthelezi · EDTC Capstone ePortfolio, University of Delaware</div>
+</footer>
+
+<button class="icon-btn" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="toast" id="toast" role="status"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="row">
+        <div><span class="kicker" id="mKicker"></span><h3 id="mTitle"></h3></div>
+        <button class="icon-btn" id="mClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="modal-tabs" role="tablist">
+        <button class="mtab" role="tab" data-mt="overview" aria-selected="true">Overview</button>
+        <button class="mtab" role="tab" data-mt="standards" aria-selected="false">Standards</button>
+        <button class="mtab" role="tab" data-mt="artifact" aria-selected="false">Artifact</button>
+        <button class="mtab" role="tab" data-mt="reflection" aria-selected="false">Reflection</button>
+      </div>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT YOUR CONTENT HERE
+
+   The Capstone Submission Form checks three things for EACH of the six
+   performances:
+     1. The performance itself is in the ePortfolio      → artifact
+     2. The standard is QUOTED                           → STANDARDS[...].quote
+     3. A sentence or two, in your own words, explaining
+        how you met that standard                        → standards: [{code, how}]
+
+   - quote: paste the official wording from the ISTE Standards for Coaches /
+     AECT Standards links on the submission form. Paste it once here and it
+     appears everywhere that standard is used. Until you do, a plain-language
+     summary shows in its place.
+   - how: your own 1–2 sentences for that performance and that standard.
+   - artifact: a file in your repo (e.g. "artifacts/needs-assessment.pdf") or a
+     link. Google Drive files must be shared as "Anyone with the link".
+   - status: "done", "progress" or "planned"
+   - reflection: optional paragraphs, e.g. ["First…", "Second…"]
+   - Remove any standard you did not align with. If you choose ISTE only or
+     AECT only on the form, delete the other group's entries below.
+
+   CHECK BEFORE SUBMITTING: open your site with ?review at the end of the
+   address (e.g. https://yourname.github.io/?review). A checklist shows
+   everything still missing.
+   ===================================================================== */
+const FRAMEWORK = "https://www1.udel.edu/edtech/edtc/EDTC-Program-Assessment-Framework-2nd-Edition.pdf";
+const GRADUATION = "Add semester, e.g. Spring 2027";
+
+const STANDARDS = {
+  "ISTE 4.1":{group:"ISTE",name:"Change Agent",quote:"",desc:"Inspires educators and leaders to use technology to create lasting, meaningful change in teaching and learning, through a shared vision, equitable access and a culture of innovation."},
+  "ISTE 4.2":{group:"ISTE",name:"Connected Learner",quote:"",desc:"Models continuous learning: pursuing professional growth, building networks and reflecting on practice to improve as a coach and leader."},
+  "ISTE 4.3":{group:"ISTE",name:"Collaborator",quote:"",desc:"Builds relationships with educators, leaders and communities to plan, implement and evaluate the use of technology for learning."},
+  "ISTE 4.4":{group:"ISTE",name:"Learning Designer",quote:"",desc:"Models and supports the design of learning experiences that are personalised, authentic, accessible and use technology to deepen learning."},
+  "ISTE 4.5":{group:"ISTE",name:"Professional Learning Facilitator",quote:"",desc:"Plans, delivers and evaluates professional learning that improves educators' use of technology, grounded in adult-learning principles."},
+  "ISTE 4.6":{group:"ISTE",name:"Data-Driven Decision-Maker",quote:"",desc:"Uses data to guide decisions about instruction, technology and professional learning, and helps others interpret and act on it."},
+  "ISTE 4.7":{group:"ISTE",name:"Digital Citizen Advocate",quote:"",desc:"Promotes safe, ethical, legal and equitable use of technology and inclusive digital learning cultures."},
+  "AECT 1":{group:"AECT",name:"Content Knowledge",quote:"",desc:"Knowledge needed to create, use, assess and manage the theory and practice of educational technologies and processes."},
+  "AECT 2":{group:"AECT",name:"Content Pedagogy",quote:"",desc:"Reflective practice in implementing educational technologies and processes grounded in theory, research and best practice."},
+  "AECT 3":{group:"AECT",name:"Learning Environments",quote:"",desc:"Creating, using, evaluating and managing effective learning environments."},
+  "AECT 4":{group:"AECT",name:"Professional Knowledge & Skills",quote:"",desc:"Designing, developing, implementing and evaluating technology-rich learning environments within a community of practice."},
+  "AECT 5":{group:"AECT",name:"Research",quote:"",desc:"Exploring, evaluating, synthesising and applying methods of inquiry to improve learning and performance."}
+};
+
+const PERFORMANCES = [
+  {
+    id:"multimedia", icon:"🌐", title:"Multimedia eLearning Environment", page:7,
+    course:"Add course code", term:"Add term", status:"done",
+    summary:"A multimedia web that creates a blended learning environment with multiple methods of assessment, including collaborative learning.",
+    overview:"I designed and built a multimedia web environment that blends online and face-to-face learning. Learners move through rich media, interactive activities and collaborative tasks, and are assessed through several complementary methods rather than a single test.",
+    highlights:["Blended structure combining online and in-person activities","Multiple assessment methods (add yours: quizzes, rubrics, peer review…)","Collaborative learning built into the design"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.4", how:""},
+      {code:"ISTE 4.3", how:""},
+      {code:"AECT 2", how:""},
+      {code:"AECT 3", how:""}
+    ],
+    reflection:[], prompts:["What topic and audience did you design for, and why?","Which assessment methods did you choose and what did each reveal?","How did collaboration work in practice? What would you redesign?"]
+  },
+  {
+    id:"needs", icon:"🔍", title:"Needs Assessment", page:10,
+    course:"Add course code", term:"Add term", status:"done",
+    summary:"A term paper with a literature review establishing the need for systemic improvements in educational technology infrastructure.",
+    overview:"This paper identifies gaps in a school or organisation's educational technology infrastructure and uses a review of the literature to argue for improvement, covering professional development and training, research-based best practices, and the characteristics of all learners.",
+    highlights:["Literature review of research-based best practices","Analysis of professional development and training needs","Attention to the characteristics of all learners"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.1", how:""},
+      {code:"ISTE 4.6", how:""},
+      {code:"AECT 1", how:""},
+      {code:"AECT 5", how:""}
+    ],
+    reflection:[], prompts:["Which setting did you assess and what was the most important need you found?","Which sources most shaped your argument?","How did this paper set up your later performances?"]
+  },
+  {
+    id:"curriculum", icon:"📓", title:"Curriculum Project", page:14,
+    course:"Add course code", term:"Add term", status:"progress",
+    summary:"Field experience with a reflective journal documenting plans, experiences and improvements in a local school or workplace.",
+    overview:"Through field experience in a local school or workplace, I kept a reflective journal documenting what I planned, what happened, and the improvements I made as a result.",
+    highlights:["Field experience in a real setting","Ongoing reflective journal","Documented cycle of planning, action and improvement"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.2", how:""},
+      {code:"ISTE 4.3", how:""},
+      {code:"AECT 3", how:""},
+      {code:"AECT 4", how:""}
+    ],
+    reflection:[], prompts:["Where did you complete your field experience?","Share one journal entry that captures a turning point.","What improvement are you most proud of?"]
+  },
+  {
+    id:"design", icon:"🧠", title:"Instructional Design", page:20,
+    course:"Add course code", term:"Add term", status:"progress",
+    summary:"Lessons or modules on a topic of strategic importance, including teacher professional development grounded in adult learning.",
+    overview:"I designed and developed instruction on a topic of strategic importance to a local curriculum. For the ISTE-C track, this includes professional development for teachers informed by the principles of adult learning.",
+    highlights:["Needs-driven topic selection","Professional development built on adult-learning principles","Developed, tested and refined materials"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.4", how:""},
+      {code:"ISTE 4.5", how:""},
+      {code:"AECT 1", how:""},
+      {code:"AECT 2", how:""}
+    ],
+    reflection:[], prompts:["Which design model guided you (e.g. ADDIE, backward design)?","How did adult-learning principles change your design for teachers?","What did participants' feedback tell you?"]
+  },
+  {
+    id:"techplan", icon:"🗺️", title:"School or Workplace Technology Plan", page:23,
+    course:"Add course code", term:"Add term", status:"planned",
+    summary:"A strategic plan for using technology to deliver instruction, collect data and evaluate results, with schedule, configuration and budget.",
+    overview:"A strategic plan explaining how a school or workplace will achieve its goals by using technology to provide instruction, collect data and evaluate whether standards have been met. It includes a work schedule, hardware and software configuration, a proposed budget and a budget explanation.",
+    highlights:["Strategic goals linked to standards","Work schedule and hardware/software configuration","Proposed budget with justification"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.1", how:""},
+      {code:"ISTE 4.6", how:""},
+      {code:"ISTE 4.7", how:""},
+      {code:"AECT 3", how:""},
+      {code:"AECT 4", how:""}
+    ],
+    reflection:[], prompts:["What was the plan's central goal?","How did you balance cost, equity and sustainability?","How will success be measured?"]
+  },
+  {
+    id:"action", icon:"🧪", title:"Action Research Project", page:17,
+    course:"Add course code", term:"Add term", status:"planned",
+    summary:"A local experiment testing whether a nationally recognised best practice achieves results like those reported in the literature.",
+    overview:"In this major research paper I implement a nationally recognised best practice in a local school or workplace and investigate whether it produces results comparable to those reported in the research literature.",
+    highlights:["Research question grounded in the literature","Local implementation and data collection","Comparison of findings with published results"],
+    artifact:"",
+    standards:[
+      {code:"ISTE 4.6", how:""},
+      {code:"ISTE 4.2", how:""},
+      {code:"AECT 5", how:""},
+      {code:"AECT 4", how:""}
+    ],
+    reflection:[], prompts:["Which best practice did you test, and why here?","What did the data show?","How will the findings change your practice?"]
+  }
+];
+
+const EXPERIENCE = [
+  {date:"May 2025 – Aug 2025",title:"Short-course Support Staff (Coding & Robotics)",org:"Wits Plus, University of the Witwatersrand",items:["Assisted educators with digital tools and unplugged coding activities to build computational thinking","Prepared multimedia resources and digital teaching materials and kept the technology running smoothly","Helped evaluate participant engagement and report outcomes"]},
+  {date:"Feb 2025 – Aug 2025",title:"Coding & Robotics Tutor (Foundation Phase educators)",org:"University of the Witwatersrand",items:["Delivered tutorial support on unplugged coding, computational thinking and age-appropriate digital tools","Guided pre-service teachers in designing interactive lessons with Scratch Junior and OctoStudio","Gave practical training and feedback on integrating coding and robotics using CAPS-aligned approaches"]},
+  {date:"Jul 2023 – Sep 2023",title:"Student Teacher",org:"Bernadino Heights High School, Cape Town",items:["Taught Life Sciences and Mathematical Literacy, making complex concepts clear","Set up demonstrations and supervised laboratory experiments"]},
+  {date:"Jan 2022 – Dec 2022",title:"Project Coordinator",org:"Nelson Mandela University, Gqeberha",items:["Provided academic support to remote schools","Facilitated Grade 10–12 mathematics and science sessions and prepared learners for examinations","Captured and analysed data, wrote reports, and coordinated events, operations and fundraising"]},
+  {date:"Nov 2021 – Dec 2022",title:"Administrative Assistant",org:"Department of Basic Education, Cala Circuit Office",items:["Analysed departmental documents for distribution","Supported circuit managers in improving operations","Captured, analysed and organised data"]},
+  {date:"Apr 2021 – Sep 2021",title:"Web Development Intern & Digital Associate",org:"CAPACITI, Cape Town",items:["Completed Python, HTML, CSS and JavaScript (ES6) training with a focus on responsive design","Built a fully functional educational website","Supported digital marketing, social media analytics and online engagement campaigns"]},
+  {date:"Jan 2021 – Apr 2021",title:"Educator Assistant",org:"KwaMagwaza Primary School, Melmoth",items:["Supported Grade 6–7 English and Social Sciences","Simplified lesson plans, presented lessons and supported learners who needed extra guidance"]}
+];
+const EDUCATION = [
+  {date:"Aug 2025 – Present",title:"Master of Education, Educational Technology",org:"University of Delaware, Newark",current:true,items:["National Standards Capstone ePortfolio aligned to ISTE and AECT standards","Six performances spanning learning design, research and technology planning"]},
+  {date:"Feb 2025 – Dec 2025",title:"Master of Education, Science and Technology",org:"University of the Witwatersrand, Johannesburg",items:["Science education with a technology focus"]},
+  {date:"Feb 2024 – Dec 2024",title:"BEd Honours, Science Education (cum laude)",org:"University of the Witwatersrand, Johannesburg",items:["Major: Life Sciences","Educational theory, research and enquiry; independent research project"]},
+  {date:"Feb 2023 – Dec 2023",title:"Postgraduate Certificate in Education (cum laude)",org:"Stellenbosch University",items:["Life Sciences and Mathematical Literacy","Curriculum studies, educational psychology, leadership and sustainable living"]},
+  {date:"Feb 2016 – Dec 2020",title:"BSc, Genetics and Microbiology",org:"University of the Free State, Bloemfontein",items:["Moshal Scholar","Genomics, molecular genetics, microbial ecology, pathogens and immunity"]}
+];
+const ROLES = ["educational technologist","learning designer","science educator","coding & robotics tutor","action researcher"];
+
+/* ===================== APP LOGIC (no edits needed) ===================== */
+const $ = s=>document.querySelector(s), $$ = s=>[...document.querySelectorAll(s)];
+const statusLabel = {done:"Completed",progress:"In progress",planned:"Upcoming"};
+const codesOf = p => p.standards.map(s=>s.code);
+const isAect = c => STANDARDS[c] && STANDARDS[c].group==='AECT';
+const tagHTML = c => `<span class="tag ${isAect(c)?'aect':''}">${c}</span>`;
+const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const USED = Object.keys(STANDARDS).filter(c=>PERFORMANCES.some(p=>codesOf(p).includes(c)));
+const filled = s => s && !/^add\b/i.test(s.trim());
+
+function quoteHTML(code){
+  const s=STANDARDS[code];
+  return s.quote
+    ? `<blockquote class="std-quote">“${s.quote}”<cite>${code} ${s.name}</cite></blockquote>`
+    : `<p class="std-summary"><span>Summary</span>${s.desc}</p>`;
+}
+
+// Theme
+const sun='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+const moon='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+function setTheme(t){document.documentElement.dataset.theme=t;$('#themeIcon').innerHTML=t==='dark'?sun:moon;store.set('theme',t)}
+setTheme(store.get('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+$('#themeBtn').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+
+// Mobile menu
+$('#menuBtn').onclick=()=>{const o=$('#navLinks').classList.toggle('open');$('#menuBtn').setAttribute('aria-expanded',o)};
+$$('#navLinks a').forEach(a=>a.onclick=()=>$('#navLinks').classList.remove('open'));
+
+// Performance cards
+function renderCards(){
+  $('#perfGrid').innerHTML = PERFORMANCES.map((p,i)=>`
+    <button class="perf reveal" data-id="${p.id}" data-std="${codesOf(p).join('|')}" aria-label="Open ${p.title}">
+      <div class="perf-top"><span class="perf-num">Performance ${i+1}</span><span class="status ${p.status}">${statusLabel[p.status]}</span></div>
+      <div class="perf-icon" aria-hidden="true">${p.icon}</div>
+      <h3>${p.title}</h3>
+      <p class="perf-desc">${p.summary}</p>
+      <div class="tags">${codesOf(p).map(tagHTML).join('')}</div>
+      <span class="perf-cta">View performance <span>→</span></span>
+    </button>`).join('');
+  $$('.perf').forEach(c=>c.onclick=()=>openModal(c.dataset.id));
+}
+function renderFilters(){
+  $('#filters').innerHTML='<span class="label">Filter:</span><button class="chip" aria-pressed="true" data-f="all">All</button>'+
+    USED.map(c=>`<button class="chip ${isAect(c)?'aect':''}" aria-pressed="false" data-f="${c}" title="${STANDARDS[c].name}">${c}</button>`).join('');
+  $$('#filters .chip').forEach(ch=>ch.onclick=()=>applyFilter(ch.dataset.f));
+}
+function applyFilter(f){
+  $$('#filters .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.f===f));
+  $$('.perf').forEach(c=>c.classList.toggle('dim',f!=='all'&&!c.dataset.std.split('|').includes(f)));
+}
+
+// Matrix
+function renderMatrix(){
+  const iste=USED.filter(c=>!isAect(c)), aect=USED.filter(isAect);
+  let h='<thead><tr><th></th>';
+  if(iste.length)h+=`<th colspan="${iste.length}" class="group">ISTE Standards for Coaches</th>`;
+  if(aect.length)h+=`<th colspan="${aect.length}" class="group">AECT Standards</th>`;
+  h+='</tr><tr><th style="text-align:left">Performance</th>';
+  USED.forEach((c,ci)=>h+=`<th class="${isAect(c)?'aect-col':''}" data-col="${ci}"><button data-code="${c}" title="${STANDARDS[c].name}">${c.replace('ISTE ','').replace('AECT ','A')}</button></th>`);
+  h+='</tr></thead><tbody>';
+  PERFORMANCES.forEach(p=>{
+    h+=`<tr><th><button data-open="${p.id}">${p.icon} ${p.title}</button></th>`;
+    USED.forEach((c,ci)=>h+=`<td class="${isAect(c)?'aect-col':''}" data-col="${ci}">${codesOf(p).includes(c)?`<span class="cell-dot" title="${p.title} · ${c}"></span>`:''}</td>`);
+    h+='</tr>';
+  });
+  $('#matrix').innerHTML=h+'</tbody>';
+  $$('#matrix thead button').forEach(b=>b.onclick=()=>selectStandard(b.dataset.code));
+  $$('#matrix [data-open]').forEach(b=>b.onclick=()=>openModal(b.dataset.open, 'standards'));
+}
+function selectStandard(code){
+  const ci=USED.indexOf(code), s=STANDARDS[code];
+  $$('#matrix thead button').forEach(b=>b.classList.toggle('on',b.dataset.code===code));
+  $$('#matrix [data-col]').forEach(el=>el.classList.toggle('hl',+el.dataset.col===ci));
+  const list=PERFORMANCES.filter(p=>codesOf(p).includes(code));
+  $('#stdDetail').innerHTML=`<h4>${code}: ${s.name}</h4>${quoteHTML(code)}
+    <div class="met-list">${list.map(p=>{const e=p.standards.find(x=>x.code===code);
+      return `<div class="met"><a href="#" data-open="${p.id}">${p.icon} ${p.title}</a><p>${filled(e.how)?e.how:'<em>Explanation coming soon.</em>'}</p></div>`}).join('')}</div>`;
+  $$('#stdDetail [data-open]').forEach(a=>a.onclick=e=>{e.preventDefault();openModal(a.dataset.open,'standards')});
+}
+
+// Modal
+let current=null, lastFocus=null;
+function openModal(id, tab){
+  current=PERFORMANCES.find(p=>p.id===id); if(!current)return;
+  if(!$('#modal').classList.contains('open'))lastFocus=document.activeElement;
+  $('#mKicker').textContent='Performance '+(PERFORMANCES.indexOf(current)+1);
+  $('#mTitle').textContent=current.title;
+  showTab(tab||'overview');
+  $('#modal').classList.add('open'); document.body.style.overflow='hidden';
+  $('#mClose').focus();
+  history.replaceState(null,'',location.pathname+location.search+'#p-'+id);
+}
+function closeModal(){
+  $('#modal').classList.remove('open'); document.body.style.overflow='';
+  history.replaceState(null,'',location.pathname+location.search+'#performances'); lastFocus&&lastFocus.focus();
+}
+function showTab(t){
+  $$('.mtab').forEach(b=>b.setAttribute('aria-selected',b.dataset.mt===t));
+  const p=current, i=PERFORMANCES.indexOf(p); let h='';
+  if(t==='overview'){
+    h=`<p>${p.overview}</p>
+      <div class="meta-grid">
+        <div class="meta"><small>Course</small><strong>${p.course}</strong></div>
+        <div class="meta"><small>Term</small><strong>${p.term}</strong></div>
+        <div class="meta"><small>Status</small><strong>${statusLabel[p.status]}</strong></div>
+      </div>
+      <h5>Key features</h5><ul>${p.highlights.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <h5>Standards practiced</h5><div class="tags">${codesOf(p).map(tagHTML).join('')}</div>
+      <p style="margin-top:10px"><button class="linkish" data-tab="standards">See how this performance met each standard →</button></p>
+      <h5>Program requirement</h5><p><a href="${FRAMEWORK}#page=${p.page}" target="_blank" rel="noopener">Read the requirement in the EDTC Program Assessment Framework ↗</a></p>`;
+  } else if(t==='standards'){
+    h=`<p style="margin-bottom:16px">This performance let me practice the following standards. Each is quoted, followed by how I met it.</p>`+
+      p.standards.map(({code,how})=>{const s=STANDARDS[code];return `
+        <div class="std-block">
+          <div class="std-block-head"><span class="code ${s.group==='AECT'?'aect':''}">${code}</span><h6>${s.name}</h6></div>
+          ${quoteHTML(code)}
+          <div class="how"><strong>How I met this standard</strong>
+            ${filled(how)?`<p>${how}</p>`:`<p class="pending">Explanation coming soon.</p>`}
+          </div>
+        </div>`}).join('');
+  } else if(t==='artifact'){
+    if(filled(p.artifact)){
+      const isPdf=/\.pdf($|\?)/i.test(p.artifact), embeddable=isPdf||/drive\.google\.com|docs\.google\.com|\.html?$/i.test(p.artifact);
+      h=`${embeddable?`<div class="artifact-box"><iframe src="${p.artifact}" title="${p.title} artifact" loading="lazy"></iframe></div>`:''}
+        <div class="btn-row" style="margin-top:14px"><a class="btn btn-primary" href="${p.artifact}" target="_blank" rel="noopener">Open artifact in new tab ↗</a>${isPdf?`<a class="btn btn-ghost" href="${p.artifact}" download>Download</a>`:''}</div>`;
+    } else {
+      h=`<div class="artifact-box"><div class="artifact-empty"><div class="big">📎</div><p><strong>Artifact coming soon.</strong></p><p>This performance's artifact will be shared here once it is finalised.</p></div></div>`;
+    }
+  } else {
+    h = p.reflection.length ? p.reflection.map(x=>`<p style="margin-bottom:12px">${x}</p>`).join('')
+      : `<div class="draft"><strong>Reflection in progress. Guiding questions:</strong><ul>${p.prompts.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  }
+  const prev=PERFORMANCES[i-1], next=PERFORMANCES[i+1];
+  h+=`<div class="modal-nav">${prev?`<button class="btn btn-ghost" data-go="${prev.id}">← ${prev.title}</button>`:'<span></span>'}${next?`<button class="btn btn-ghost" data-go="${next.id}">${next.title} →</button>`:''}</div>`;
+  $('#mBody').innerHTML=h; $('.modal-box').scrollTop=0;
+  $$('#mBody [data-go]').forEach(b=>b.onclick=()=>openModal(b.dataset.go,t));
+  $$('#mBody [data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+}
+$$('.mtab').forEach(b=>b.onclick=()=>showTab(b.dataset.mt));
+$('#mClose').onclick=closeModal;
+$('#modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
+document.addEventListener('keydown',e=>{
+  if(!$('#modal').classList.contains('open'))return;
+  if(e.key==='Escape')closeModal();
+  if(e.key==='Tab'){const f=$$('#modal button, #modal a, #modal iframe').filter(x=>x.offsetParent);if(!f.length)return;
+    if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+    else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}}
+  if((e.key==='ArrowRight'||e.key==='ArrowLeft')&&e.target.classList.contains('mtab')){
+    const t=$$('.mtab'),k=t.indexOf(e.target),n=t[(k+(e.key==='ArrowRight'?1:t.length-1))%t.length];n.focus();n.click()}
+});
+
+// Timeline
+function renderTimeline(which){
+  const data=which==='education'?EDUCATION:EXPERIENCE;
+  $('#timeline').innerHTML=data.map((d,i)=>`
+    <div class="tl-item ${d.current?'current':''} ${i===0?'open':''}">
+      <div class="tl-card">
+        <button class="tl-head" aria-expanded="${i===0}"><div><h4>${d.title}</h4><div class="tl-org">${d.org}</div></div><span class="tl-date">${d.date}</span></button>
+        <div class="tl-body"><div><ul>${d.items.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>
+      </div>
+    </div>`).join('');
+  $$('.tl-head').forEach(b=>b.onclick=()=>{const it=b.closest('.tl-item');const o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+}
+$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));renderTimeline(t.dataset.tl)});
+
+// Typing effect
+(function(){
+  const el=$('#typed'); if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let r=0,c=ROLES[0].length,del=true;
+  (function tick(){
+    el.textContent=ROLES[r].slice(0,c);
+    if(del){c--; if(c<0){del=false;r=(r+1)%ROLES.length;c=0}}
+    else{c++; if(c>ROLES[r].length){del=true; return setTimeout(tick,1800)}}
+    setTimeout(tick,del?40:85);
+  })();
+})();
+
+// Scroll effects
+function onScroll(){
+  const st=scrollY, h=document.documentElement.scrollHeight-innerHeight;
+  $('#progress').style.width=(h>0?st/h*100:0)+'%';
+  $('#nav').classList.toggle('scrolled',st>10);
+  $('#toTop').classList.toggle('show',st>600);
+  let cur=''; $$('main section[id]').forEach(s=>{if(s.offsetTop-120<=st)cur=s.id});
+  $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+}
+addEventListener('scroll',onScroll,{passive:true});
+$('#toTop').onclick=()=>scrollTo({top:0});
+
+function observe(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return; const t=e.target; t.classList.add('in');
+    if(t.dataset.count){const n=+t.dataset.count;let k=0;const step=()=>{k++;t.textContent=k;if(k<n)setTimeout(step,900/n)};step()}
+    if(t.dataset.w)t.style.width=t.dataset.w+'%';
+    io.unobserve(t);
+  }),{threshold:.15});
+  $$('.reveal,[data-count],.bar i').forEach(el=>io.observe(el));
+}
+
+// Copy email
+$('#copyEmail').onclick=async()=>{
+  const em='sindiswathembisile18@gmail.com';
+  try{await navigator.clipboard.writeText(em);toast('Email copied')}catch(e){toast(em)}
+};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+// Review checklist: add ?review to the address to see what's missing before submitting
+function renderReview(){
+  const rows=[], miss=(ok,txt,id)=>rows.push({ok,txt,id});
+  miss(filled(GRADUATION),'Graduation semester set (GRADUATION)');
+  USED.forEach(c=>miss(!!STANDARDS[c].quote,`${c} ${STANDARDS[c].name}: official wording quoted`));
+  PERFORMANCES.forEach((p,i)=>{
+    miss(filled(p.artifact),`P${i+1} ${p.title}: artifact added`,p.id);
+    p.standards.forEach(s=>miss(filled(s.how),`P${i+1} ${p.title}: explanation for ${s.code}`,p.id));
+  });
+  const done=rows.filter(r=>r.ok).length, all=rows.length;
+  const box=document.createElement('aside'); box.className='review'; box.setAttribute('aria-label','Submission checklist');
+  box.innerHTML=`<div class="review-head"><strong>Submission checklist</strong><span>${done}/${all}</span><button aria-label="Collapse checklist">–</button></div>
+    <div class="review-bar"><i style="width:${done/all*100}%"></i></div>
+    <div class="review-list">${done===all?'<p class="ok-all">Everything the submission form checks for is in place. Make sure your repository is public, then submit.</p>':''}
+    ${rows.filter(r=>!r.ok).map(r=>`<div class="rv">${r.id?`<a href="#" data-open="${r.id}">${r.txt}</a>`:r.txt}</div>`).join('')}</div>`;
+  document.body.appendChild(box);
+  box.querySelector('.review-head button').onclick=()=>box.classList.toggle('min');
+  box.querySelectorAll('[data-open]').forEach(a=>a.onclick=e=>{e.preventDefault();openModal(a.dataset.open,'standards')});
+}
+
+// Init
+$('#year').textContent=new Date().getFullYear();
+$('#stdCount').dataset.count=USED.length;
+if(filled(GRADUATION))$('#gradLine').textContent='Expected graduation: '+GRADUATION;
+renderFilters(); renderCards(); renderMatrix(); renderTimeline('experience'); observe(); onScroll();
+if(new URLSearchParams(location.search).has('review'))renderReview();
+if(location.hash.startsWith('#p-'))openModal(location.hash.slice(3));
+</script>
+</body>
+</html>
